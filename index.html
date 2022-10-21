@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mon Snack</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -21,7 +21,7 @@
    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-5">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">Mon Snack</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -69,25 +69,28 @@
         </div>
     </header>
     <div id="app" class="container">
-        
-        <div class="row" v-if="commandes.length > 0">
-            <h3 class="">Produits commandées</h3>
-            <ul class="">
-                <li v-for="(ligne, index1) in commandes" :key="index1">
-                    {{ ligne.name }}
-                </li>
-            </ul>
-        </div>
-        <hr>
-        
-        <h3 class="">Produits disponible</h3>
         <div class="row">
-            <fiche-produit class="col-2" 
-                v-for="(produit, index) in products" 
-                :article="produit" 
-                @ev_commande_passee="commander(produit)"> 
-            </fiche-produit>
+            <div class="col-2">
+                <div class="row" v-if="commandes.length > 0">
+                    <h3 class="">Produits commandées</h3>
+                    <ul class="">
+                        <li v-for="(ligne, index1) in commandes" :key="index1">
+                            {{ ligne.name }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
             
+            <div class="col-10">
+                <h3 class="">Produits disponible</h3>
+                <div class="row">
+                    <fiche-produit class="col-2" 
+                    v-for="(produit, index) in products" 
+                    :article="produit" 
+                    @ev_commande_passee="commander(produit)"> 
+                    </fiche-produit>
+                </div>
+            </div>
         </div>
     </div>
 
